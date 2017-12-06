@@ -65,6 +65,10 @@ public class PlayerBehaviour : MonoBehaviour
 
     void GetInput()
     {
+        //Rework this so: 
+        //sidewaysInput = InputManager.GetHorizontalInput();
+        //jumpInput = InputManager.GetJumpInput();
+        //Look into inputSettings!!
         if (inputSettings.SIDEWAYS_AXIS.Length != 0)
         {
             sidewaysInput = Input.GetAxis(inputSettings.SIDEWAYS_AXIS);
