@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
 		
 	}
 	
-	public Vector2 GetVerticalInput()
+	public Vector2 GetHorizontalInput()
 	{
 		//Via tilt of the phone || (A, D)
 		//Only calculate when called; NOT EVERY FRAME
