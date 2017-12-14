@@ -222,11 +222,17 @@ public class PlayerBehaviour : MonoBehaviour
         //When the player touches a Spawnpoints collider and presses E then it is set as the player's new Spawnpoint
         if (col.gameObject.tag == "Spawnpoint")
         {
-            //Still need to add some kind of dialogue option that shows that you can interact
             //Got problems with key-detection for the E; Need to look into it again
             if (!col.gameObject.GetComponent<SpawnBehaviour>().isActive()) //Stuff only happens if the spawnpoint isn't already the player's
             {
-                if (Input.GetButtonDown("Interact"))
+                //From this point on until this project is finished (or i change my mind) interaction with objects on Mobile will work as follows:
+                //1. The object you can interact with spawns the button prompt (might make a interactible class from which the Spawn inhertis this)
+                //2. The interatcible adds its prompt to the list in the InputManager
+                //3. I'll give to object I want to interact with to the InputManager in one of the three methods
+                //4. The IM checks if one of my touches hits one of the prompts in the list
+                //5. All prompts that are hit will be stored in a seperate list
+                //6. If the object I gave to the IM thorough my request method it will return true
+                if (InputManager.GetInteractDown(col.gameObject))
                 {
                     Spawnpoint.GetComponent<SpawnBehaviour>().Deactivate();
                     Spawnpoint = col.gameObject;

@@ -376,4 +376,13 @@ public class GameManager : MonoBehaviour
             addEnergy(-10, true);
         }
     }
+
+    public static string NewID()
+    {
+        string ret = "";
+
+        ret += Time.frameCount * Time.realtimeSinceStartup;
+
+        return ret;
+    }
 }

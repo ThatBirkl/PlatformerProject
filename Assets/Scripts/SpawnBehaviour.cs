@@ -1,31 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpawnBehaviour : MonoBehaviour
+public class SpawnBehaviour : Interactible
 {
     [SerializeField]
     private bool active = false;
     private Animator anim;
-    private GameObject ButtonPrompt;
 
-    void Start()
+    protected override void Start()
     {
+        promptPath = "Prefabs/Interface/ButtonPromptMask";
         anim = gameObject.GetComponent<Animator>();
         if (active)
         {
             Activate();
         }
-        ButtonPrompt = Resources.Load<GameObject>("Prefabs/Interface/ButtonPromptMask");
+        base.Start();
     }
 
-    public void Activate()
+    public override void Activate()
     {
-        DestroyButtonPrompt();
+        base.Activate();
         active = true;
         anim.SetBool("isActive", active);
     }
 
-    public void Deactivate()
+    public override void Deactivate()
     {
         active = false;
         anim.SetBool("isActive", active);
@@ -36,20 +36,12 @@ public class SpawnBehaviour : MonoBehaviour
         return active;
     }
 
-    public void SpawnButtonPrompt()
-    {
-        Vector3 pos = transform.position;
-        pos.y += 2;
-        GameObject prompt = Instantiate(ButtonPrompt, pos, Quaternion.Euler(0, 0, 0)) as GameObject;
-        prompt.transform.SetParent(gameObject.transform);
-    }
-
-    public void DestroyButtonPrompt()
+    public override void DestroyButtonPrompt()
     {
         if (!active)
         {
-            GameObject prompt = gameObject.transform.GetChild(0).gameObject;
-            Object.Destroy(prompt);
+            base.DestroyButtonPrompt();
         }
     }
+
 }
