@@ -13,7 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     #region Movement Fields
     public MoveSettings moveSettings;
-    public InputSettings inputSettings;
+    //public InputSettings inputSettings;
     private Rigidbody2D playerRigidbody;
     protected Vector2 velocity;
     private float sidewaysInput;
@@ -69,11 +69,9 @@ public class PlayerBehaviour : MonoBehaviour
         //sidewaysInput = InputManager.GetHorizontalInput();
         //jumpInput = InputManager.GetJumpInput();
         //Look into inputSettings!!
-        if (inputSettings.SIDEWAYS_AXIS.Length != 0)
-        {
-            sidewaysInput = Input.GetAxis(inputSettings.SIDEWAYS_AXIS);
-            jumpInput = Input.GetAxis(inputSettings.JUMP_AXIS);
-        }
+        sidewaysInput = InputManager.GetHorizontalInput();
+
+        jumpInput = InputManager.GetJumpInput();//
     }
 
     #region Movement Methods
@@ -156,13 +154,13 @@ public class PlayerBehaviour : MonoBehaviour
         public LayerMask ground;
     }
 
-    [System.Serializable]
-    public class InputSettings
-    {
-        public string FORWARD_AXIS = "Vertical";
-        public string SIDEWAYS_AXIS = "Horizontal";
-        public string JUMP_AXIS = "Jump";
-    }
+    //[System.Serializable]
+    //public class InputSettings
+    //{
+    //    public string FORWARD_AXIS = "Vertical";
+    //    public string SIDEWAYS_AXIS = "Horizontal";
+    //    public string JUMP_AXIS = "Jump";
+    //}
     #endregion
 
     public void Respawn()

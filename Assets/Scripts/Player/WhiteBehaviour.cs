@@ -71,7 +71,7 @@ public class WhiteBehaviour : PlayerBehaviour, RInterface
     {
         if (GameManager.GiveEnergy(true) >= 0)
         {
-            if ((GameManager.GivePrimary(true) == 2 && Input.GetButtonDown("Primary")) || (GameManager.GiveSecundary(true) == 2 && Input.GetButtonDown("Secundary")))
+            if ((GameManager.GivePrimary(true) == 2 && InputManager.GetPrimaryAbilityDown()) || (GameManager.GiveSecundary(true) == 2 && InputManager.GetSecundaryAbilityDown()))
             {
                 Vector3 spawnPosition = gameObject.transform.position;
                 spawnPosition.y = spawnPosition.y - (gameObject.transform.localScale.y * 0.3f);

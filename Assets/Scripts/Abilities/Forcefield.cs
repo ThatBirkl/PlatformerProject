@@ -91,14 +91,14 @@ public class Forcefield : MonoBehaviour
         else
         {
             //Forcefield is Primary
-            if (GameManager.GivePrimary(true) == 2 && Input.GetButtonUp("Primary"))
+            if (GameManager.GivePrimary(true) == 2 && InputManager.GetPrimaryAbilityUp())
             {
                 state = State.dead;
                 StartCoroutine(Shrink());
                 player.GetComponent<WhiteBehaviour>().protect = false;
             }
             //Forcefield is Secundary
-            if (GameManager.GiveSecundary(true) == 2 && Input.GetButtonUp("Secundary"))
+            else if (GameManager.GiveSecundary(true) == 2 && InputManager.GetSecundaryAbilityUp())
             {
                 state = State.dead;
                 StartCoroutine(Shrink());

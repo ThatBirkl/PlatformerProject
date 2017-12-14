@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     //Black
     public static int primaryBlack = 0;
     public static int secundaryBlack = 0;
-    public static bool energyblast;
+    public static bool energyblast = false;
     #endregion
     #region MISC
     public static bool currentlyPlaying;

@@ -22,7 +22,7 @@ public class Rewind : MonoBehaviour
         ///White's energy has to be >0
             if (GameManager.rewind && GameManager.GiveEnergy(true) > 0 && GameManager.GivePrimary(true) == 1)
             {
-                if (Input.GetButton("Primary"))
+                if (InputManager.GetPrimaryAbility())
                 {
                     if (objectsOnStack.Count > 0)
                     {
@@ -47,7 +47,7 @@ public class Rewind : MonoBehaviour
                 //first check for primary, then secundary
                 if (GameManager.rewind && GameManager.GiveEnergy(true) > 0 && GameManager.GiveSecundary(true) == 1)
                 {
-                    if (Input.GetButton("Secundary"))
+                    if (InputManager.GetSecundaryAbility())
                     {
                         if (objectsOnStack.Count > 0)
                         {
@@ -78,8 +78,8 @@ public class Rewind : MonoBehaviour
     public void Reactivate()
     {
         if (!active && ((GameManager.GiveEnergy(true) <= 0)
-            ||(GameManager.GivePrimary(true) == 1 && Input.GetButtonUp("Primary"))
-            ||(GameManager.GiveSecundary(true) == 1 && Input.GetButtonUp("Secundary"))))
+            ||(GameManager.GivePrimary(true) == 1 && InputManager.GetPrimaryAbilityUp())
+            ||(GameManager.GiveSecundary(true) == 1 && InputManager.GetSecundaryAbilityUp())))
         {
             otherScript.Reactivate();
             active = true;
