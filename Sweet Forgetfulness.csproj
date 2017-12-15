@@ -247,6 +247,7 @@
     <Compile Include="Assets\Scripts\MovingPlatformBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\BlackBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Player\OutputManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\WhiteBehaviour.cs" />
     <Compile Include="Assets\Scripts\PresentationBossFight.cs" />

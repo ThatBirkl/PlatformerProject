@@ -11,6 +11,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TouchInput
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -120,6 +121,7 @@ b083d13e5ed70218cd1c483de3275abc Assembly-CSharp.dll:.MusicManager
 9cdb411774f266c0268827ed8e186505 Assembly-CSharp.dll:.HUD_Elements
 7c6fe8d9171d504ea57cf1fb1e6ad817 Assembly-CSharp.dll:.LifeBehaviour
 cb0b8d20035db5768c1a46ecb0d84d55 Assembly-CSharp.dll:.InputManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Interactible
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CheatManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PauseManager
 29666521f38c6200b4d0e1c7b7c9f2a7 Assembly-CSharp.dll:.BlackBehaviour
@@ -163,4 +165,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 bf0d8723bee67b360b59f31a692677bb Assembly-CSharp.dll:.RewindSocket
 bf0d8723bee67b360b59f31a692677bb Assembly-CSharp.dll:.RewindUnlock
 9fbf1c331ad8a0432d622129524e1433 Assembly-CSharp.dll:.HopperBehaviour
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TouchInput
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OutputManager

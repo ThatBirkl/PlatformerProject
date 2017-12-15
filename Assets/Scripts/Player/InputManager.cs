@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-//using System.Linq;
 using System.Collections.Generic;
 
 public class InputManager : MonoBehaviour
@@ -57,6 +56,20 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+        DetectTouches();
+    }
+
+    private void LateUpdate()
+    {
+        primary.up = false;
+        primary.down = false;
+        secundary.up = false;
+        secundary.down = false;
+        jumpInput = 0f;
+    }
+
+    private void DetectTouches()
+    {
         //if (!Application.isMobilePlatform)
         //    return;
 
@@ -67,7 +80,6 @@ public class InputManager : MonoBehaviour
         GameObject recipient;
         foreach (Touch t in Input.touches)
         {
-            //Ray ray = Camera.main.ScreenPointToRay(t.position);
             RaycastHit2D hit = Physics2D.Raycast((t.position), Vector2.zero);
             if (hit.collider != null)
             {
@@ -102,13 +114,6 @@ public class InputManager : MonoBehaviour
                         secundary.up = true;
                         secundary.hold = false;
                     }
-                    //for (int i = 0; i < _prompts.Length; i++)
-                    //{
-                    //    if (recipient.name.Equals(_prompts[i].name))
-                    //    {
-                    //        hitPrompts.Remove(_prompts[i]);
-                    //    }
-                    //}
                 }
             }
             hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(t.position), Vector2.zero);
@@ -125,15 +130,6 @@ public class InputManager : MonoBehaviour
             }
 
         }
-    }
-
-    private void LateUpdate()
-    {
-        primary.up = false;
-        primary.down = false;
-        secundary.up = false;
-        secundary.down = false;
-        jumpInput = 0f;
     }
 
     public static void AssignAllUIButtons(params Button[] buttons)
@@ -154,7 +150,6 @@ public class InputManager : MonoBehaviour
         float sidewaysInput = 0f;
         if (true)//Application.isMobilePlatform)
         {
-            //print(Input.acceleration.x);
             sidewaysInput = Input.acceleration.x;
             if (sidewaysInput > -0.15 && sidewaysInput < 0.15)
                 sidewaysInput = 0;

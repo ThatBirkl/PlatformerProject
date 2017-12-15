@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
         Paused = false;
     }
 
+    private void Start()
+    {
+        OutputManager.Prepare(gameObject.GetComponent<AudioSource>());
+    }
+
     #region Functions for Lives
     public static void addLives(int add, bool character)
     {
@@ -66,10 +71,14 @@ public class GameManager : MonoBehaviour
             {
                 livesWhite = maxLivesWhite;
             }
-            if (livesWhite <= 0)
+            else if (livesWhite <= 0)
             {
+				OutputManager.Death();
+				
                 player.GetComponent<WhiteBehaviour>().Respawn();
             }
+			else if(add < 0)
+				OutputManager.DamageTaken();
         }
         else //character false, dann Black
         {
@@ -78,15 +87,21 @@ public class GameManager : MonoBehaviour
             {
                 livesBlack = maxLivesBlack;
             }
-            if (livesBlack <= 0)
+            else if (livesBlack <= 0)
             {
+				OutputManager.Death();
+				
                 player.GetComponent<BlackBehaviour>().Respawn();
             }
+			else if(add < 0)
+				OutputManager.DamageTaken();
         }
     }
 
     public static void addMaxLives(int add, bool character)
     {
+		OutputManager.AddedMaxLives();
+		
         if (character)
         {
             maxLivesWhite = maxLivesWhite + add;
@@ -367,15 +382,6 @@ public class GameManager : MonoBehaviour
         currentlyPlaying = character;
         player = _player;
     }
-    #endregion
-
-    private void FixedUpdate()
-    {
-        if (rewinding && energyWhite > 0)
-        {
-            addEnergy(-10, true);
-        }
-    }
 
     public static string NewID()
     {
@@ -384,5 +390,14 @@ public class GameManager : MonoBehaviour
         ret += Time.frameCount * Time.realtimeSinceStartup;
 
         return ret;
+    }
+    #endregion
+
+    private void FixedUpdate()
+    {
+        if (rewinding && energyWhite > 0)
+        {
+            addEnergy(-10, true);
+        }
     }
 }
