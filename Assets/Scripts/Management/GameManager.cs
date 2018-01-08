@@ -165,6 +165,8 @@ public class GameManager : MonoBehaviour
 
     public static void addBones(int add, bool character)
     {
+        OutputManager.AddedBones();
+
         if (character)
         {
             bonesWhite = bonesWhite + add;
@@ -191,6 +193,8 @@ public class GameManager : MonoBehaviour
     #region Functions for Energy
     public static void addEnergy(int add, bool character)
     {
+        OutputManager.AddedEnergy();
+
         if (character)
         {
             energyWhite = energyWhite + add;
@@ -211,6 +215,8 @@ public class GameManager : MonoBehaviour
 
     public static void addMaxEnergy(int add, bool character)
     {
+        OutputManager.AddedMaxEnergy();
+
         if (character)
         {
             maxEnergyWhite = maxEnergyWhite + add;
@@ -348,6 +354,8 @@ public class GameManager : MonoBehaviour
 
     public static void ActivateAbility(string ability)
     {
+        OutputManager.AddedAbility();
+
         if (ability.Equals("Rewind"))
         {
             rewind = true;

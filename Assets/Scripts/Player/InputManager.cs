@@ -70,8 +70,8 @@ public class InputManager : MonoBehaviour
 
     private void DetectTouches()
     {
-        //if (!Application.isMobilePlatform)
-        //    return;
+        if (!(Application.platform == RuntimePlatform.Android))
+            return;
 
         hitPromptsPrev = hitPrompts;
         hitPrompts.Clear();
@@ -134,7 +134,7 @@ public class InputManager : MonoBehaviour
 
     public static void AssignAllUIButtons(params Button[] buttons)
     {
-        if (true/*Application.isMobilePlatform*/)
+        if (Application.platform == RuntimePlatform.Android)
         {
             jmp = buttons[0];
             Ability_p = buttons[1];
@@ -148,7 +148,7 @@ public class InputManager : MonoBehaviour
         //Via tilt of the phone || (A, D)
         //Only calculate when called; NOT EVERY FRAME
         float sidewaysInput = 0f;
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             sidewaysInput = Input.acceleration.x;
             if (sidewaysInput > -0.15 && sidewaysInput < 0.15)
@@ -175,7 +175,7 @@ public class InputManager : MonoBehaviour
 	public static float GetJumpInput()
 	{
         //Button on screen || (Space)
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
         }
         else
@@ -191,7 +191,7 @@ public class InputManager : MonoBehaviour
 	{
         //Button on screen || (Mouse0)
 
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             return primary.down;
         }
@@ -206,7 +206,7 @@ public class InputManager : MonoBehaviour
     {
         //Button on screen || (Mouse0)
 
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             return primary.up;
         }
@@ -220,7 +220,7 @@ public class InputManager : MonoBehaviour
     {
         //Button on screen || (Mouse0)
 
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             return primary.hold;
         }
@@ -234,7 +234,7 @@ public class InputManager : MonoBehaviour
     public static bool GetSecundaryAbilityDown()
 	{
         //Button on screen || (Mouse1)
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             return secundary.down;
         }
@@ -247,7 +247,7 @@ public class InputManager : MonoBehaviour
     public static bool GetSecundaryAbilityUp()
     {
         //Button on screen || (Mouse1)
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             return secundary.up;
         }
@@ -260,7 +260,7 @@ public class InputManager : MonoBehaviour
     public static bool GetSecundaryAbility()
     {
         //Button on screen || (Mouse1)
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             return secundary.hold;
         }
@@ -283,7 +283,7 @@ public class InputManager : MonoBehaviour
 
     public static bool GetInteractDown(params GameObject[] obj)
     {
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             print(hitPrompts + " || " + obj[0].GetComponent<Interactible>().ButtonPrompt);
             print(hitPrompts.Contains(obj[0].GetComponent<Interactible>().ButtonPrompt.name));
@@ -306,7 +306,7 @@ public class InputManager : MonoBehaviour
 
     public static bool GetInteractUp(params GameObject[] obj)
     {
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             if (!hitPrompts.Contains(obj[0].GetComponent<Interactible>().ButtonPrompt.name)
                 && hitPromptsPrev.Contains(obj[0].GetComponent<Interactible>().ButtonPrompt.name))
@@ -327,7 +327,7 @@ public class InputManager : MonoBehaviour
 
     public static bool GetInteract(params GameObject[] obj)
     {
-        if (true)//Application.isMobilePlatform)
+        if (Application.platform == RuntimePlatform.Android)
         {
             if (hitPrompts.Contains(obj[0].GetComponent<Interactible>().ButtonPrompt.name))
             {
