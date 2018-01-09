@@ -38,10 +38,11 @@ public class SpawnBehaviour : Interactible
 
     public override void DestroyButtonPrompt()
     {
-        if (!active)
-        {
-            base.DestroyButtonPrompt();
-        }
+        //if (!active)
+        //{
+        //    base.DestroyButtonPrompt();
+        //}
+		base.DestroyButtonPrompt();
     }
 
 }

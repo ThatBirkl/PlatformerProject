@@ -232,6 +232,7 @@ public class PlayerBehaviour : MonoBehaviour
                 //4. The IM checks if one of my touches hits one of the prompts in the list
                 //5. All prompts that are hit will be stored in a seperate list
                 //6. If the object I gave to the IM thorough my request method it will return true
+				col.gameObject.GetComponent<SpawnBehaviour>().SpawnButtonPrompt();
                 if (InputManager.GetInteractDown(col.gameObject))
                 {
                     Spawnpoint.GetComponent<SpawnBehaviour>().Deactivate();

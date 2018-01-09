@@ -285,12 +285,12 @@ public class InputManager : MonoBehaviour
     {
         if (Application.platform == RuntimePlatform.Android)
         {
-            print(hitPrompts + " || " + obj[0].GetComponent<Interactible>().ButtonPrompt);
-            print(hitPrompts.Contains(obj[0].GetComponent<Interactible>().ButtonPrompt.name));
+            //print(hitPrompts + " || " + obj[0].GetComponent<Interactible>().ButtonPrompt);
+            //print(hitPrompts.Contains(obj[0].GetComponent<Interactible>().ButtonPrompt.name));
             if (hitPrompts.Contains(obj[0].GetComponent<Interactible>().ButtonPrompt.name))
             {
                 hitPrompts.Remove(obj[0].GetComponent<Interactible>().ButtonPrompt.name);
-                print("interactig with prompt " + obj[0].GetComponent<Interactible>().ButtonPrompt.name);
+                //print("interactig with prompt " + obj[0].GetComponent<Interactible>().ButtonPrompt.name);
                 return true;
             }
             else
